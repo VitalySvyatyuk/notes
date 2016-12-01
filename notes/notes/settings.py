@@ -46,13 +46,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.sites',
-    'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.linkedin',
-    'allauth.socialaccount.providers.odnoklassniki',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.vk',
+    # 'allauth.socialaccount.providers.linkedin',
+    # 'allauth.socialaccount.providers.odnoklassniki',
+    # 'allauth.socialaccount.providers.twitter',
+    # 'allauth.socialaccount.providers.vk',
 
 
 
@@ -83,7 +84,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
             ],
         },
     },
@@ -148,3 +148,5 @@ STATICFILES_DIRS = [
 ]
 
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/profile/'

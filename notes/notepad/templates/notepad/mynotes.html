@@ -1,9 +1,0 @@
-{% extends "notepad/index.html" %}
-
-{% block content %}
-	{% for note in notes %}
-		<p>{{ note.name }}</p>
-		<p>{{ note.text }}</p>
-
-	{% endfor %}
-{% endblock %}
