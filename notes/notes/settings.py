@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Application definition
 
@@ -37,7 +44,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'notepad',
+    'allauth',
+    'allauth.account',
+    'django.contrib.sites',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.odnoklassniki',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.vk',
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -57,7 +75,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR + '/templates/',
-            BASE_DIR + '/notepad/templates/notepad/',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -66,6 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -129,6 +147,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"), 
 ]
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'notepad:index'
-LOGOUT_REDIRECT_URL = 'notepad:index'
+SITE_ID = 1
