@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'notepad',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -76,6 +77,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR + '/templates/',
+            BASE_DIR + '/notepad/templates/notepad/'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -149,4 +151,7 @@ STATICFILES_DIRS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_REDIRECT_URL = 'notepad:index'
+LOGIN_URL = 'account_login'
+LOGOUT_URL = 'account_logout'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'notepad:index'
